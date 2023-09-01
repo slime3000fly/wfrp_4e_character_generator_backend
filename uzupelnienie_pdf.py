@@ -1,6 +1,6 @@
 from fillpdf import fillpdfs
 
-class uzupelnianie_pdf():
+class Uzupelnianie_pdf():
     def __init__(self, output_pdf="New_PDF"):
         """
         Inicjalizuje obiekt klasy uzupelnianie_pdf.
@@ -30,6 +30,13 @@ class uzupelnianie_pdf():
         :param key_name: Nazwa pola tekstowego do uzupełnienia.
         :param text: Tekst, który ma być wstawiony do pola tekstowego. Domyślnie "placeHolder".
         """
+        if key_number is not None and 0 <= key_number < len(self.keys):
+            tmp_key = self.keys[key_number]
+        elif key_name in self.keys:
+            tmp_key = key_name
+        else:
+            raise ValueError("Nieprawidłowy numer pola tekstowego lub nazwa pola.")
+
         if key_number is not None:
             tmp_key = self.keys[key_number]
         if key_name is not None:
