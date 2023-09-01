@@ -1,7 +1,7 @@
 import unittest
 from fillpdf import fillpdfs
 import os
-from main import uzpelnianie_pdf
+from uzupelnienie_pdf import uzupelnianie_pdf
 
 class TestUzupelnianiePdf(unittest.TestCase):
 
@@ -11,7 +11,7 @@ class TestUzupelnianiePdf(unittest.TestCase):
         self.pdf = fillpdfs.get_form_fields(self.NAZWA_PDF)
         self.keys = list(self.pdf.keys())
         self.data_dict = {}
-        self.pdf_uzupelnianie = uzpelnianie_pdf(self.output_pdf)
+        self.pdf_uzupelnianie = uzupelnianie_pdf(self.output_pdf)
 
     def test_tworzenie_pdf(self):
         self.pdf_uzupelnianie.tworzenie_pdf()
