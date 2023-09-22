@@ -1,7 +1,7 @@
 from fillpdf import fillpdfs
 
 class Uzupelnianie_pdf():
-    def __init__(self, output_pdf="New_PDF"):
+    def __init__(self, output_pdf="New_PDF.pdf"):
         """
         Inicjalizuje obiekt klasy uzupelnianie_pdf.
 
