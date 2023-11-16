@@ -1,4 +1,9 @@
 /.DS_Store
 /.pytest_cache
 /__pycache__
-env
+
+# enviroment
+env*
+.env*
+venv*
+.venv*
