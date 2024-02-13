@@ -21,5 +21,7 @@ from .views import index, signup
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',index, name="index"),
-    path('signup/',signup, name="signup")
+    path('signup/',signup, name="signup"),
+    path('login/',login,name="login"),
+    path('save_json',save_json,name="save_json")
 ]
