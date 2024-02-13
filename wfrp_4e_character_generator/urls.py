@@ -21,5 +21,5 @@ from .views import index, signup
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',index, name="index"),
-    path('signup/',signup, name="singup")
+    path('signup/',signup, name="signup")
 ]

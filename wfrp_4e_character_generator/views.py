@@ -1,19 +1,20 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
-from .forms.signup import RegistrationForm
-
-def index(request):
-    return render(request,'index.html')
+from django.http import JsonResponse
+from django.contrib.auth.models import User
+import json
 
 def signup(request):
-    if request.method == 'POST':
-        form = RegistrationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return redirect('index')  # redirect to main page
+    if request.method == "POST":
+        data = json.loads(request.body)
+        username = data.get("username")
+        password = data.get("password")
+        
+        # check if user exist
+        if User.objects.filter(username=username).exists():
+            return JsonResponse({"error": "user exist"}, status=400)
+        
+        # create user
+        user = User.objects.create_user(username=username, password=password)
+        
+        return JsonResponse({"message": "registration succeeded"})
     else:
-        form = RegistrationForm()
-    return render(request, 'signup.html', {'form': form})
+        return JsonResponse({"error": "method must be POST!"}, status=400)
