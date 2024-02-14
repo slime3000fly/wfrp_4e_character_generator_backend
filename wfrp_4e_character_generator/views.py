@@ -43,13 +43,12 @@ def save_json(request):
         user = User.objects.filter(username=username).first()  # get user
 
         if user:
-            # update json objcet
-            user.profile.json_data = json_data
-            user.profile.save()
+            # # update json objcet
+            # user.profile.json_data = json_data
+            # user.profile.save()
 
             return JsonResponse({"message": "JSON data saved successfully"})
         else:
             return JsonResponse({"error": "User not found"}, status=400)
 
     return JsonResponse({"error": "Method must be POST"}, status=400)
-

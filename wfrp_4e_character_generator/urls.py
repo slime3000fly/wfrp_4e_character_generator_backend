@@ -16,12 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import index, signup
+from .views import signup, login, save_json
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',index, name="index"),
     path('signup/',signup, name="signup"),
     path('login/',login,name="login"),
-    path('save_json',save_json,name="save_json")
+    path('save_json/',save_json,name="save_json")
 ]
